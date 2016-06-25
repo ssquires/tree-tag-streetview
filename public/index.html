@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Select Trees</title>
+      <meta name="viewport" content="initial-scale=1.0">  
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="/jquery/jquery-ui.min.css">
+      <link rel="stylesheet" type="text/css" href="index.css">
+      <script src="/jquery/external/jquery/jquery.js"></script>
+      <script src="/jquery/jquery-ui.min.js"></script>
+      <script src="index.js"></script>
+  </head>
+  <body>
+    <div id="directions_container">
+        <div id="directions_bar">
+            <div id="directions_button"><h3>Directions (hide)</h3></div>
+        </div>
+        <div id="directions_box">
+            <h3>Click and drag to pan the street view image below and mark the base of every tree you see.</h3>
+            <p>
+            <strong>To mark a tree:</strong>
+            </p>
+            <p>
+                1. Click and drag the image to center the red square on the base of the tree, right where the tree meets the ground.
+            </p>
+            <p>
+                2. Click the "Add Tree" button at the top right of the image.
+            </p>
+            <p>
+                <strong>Click on an existing tree marker to remove it.</strong>
+            </p>
+            <p>If a tree is too far away to see clearly, do not mark it. If the base of the tree is blocked by another object, such as a car, take your best guess of where the base of the tree is.</p>
+            <p>
+                Use the "Submit HIT" button at the bottom of the page when you're done.
+            </p>
+        </div>
+    </div>
+    <div id="map_and_streetview_container">
+        <div id="map_container">
+            <div id="map"></div>
+            <div id="tree_marker_1" class="tree_marker"></div>
+            <button onclick="addTreeFromStreetview();" id="add_tree_button">Add Tree</button>
+        </div>
+    </div>
+    <form id="form" action="https://www.mturk.com/mturk/externalSubmit"
+          method="POST">
+        <input type="submit" id="submit_all_trees_button" value="Submit HIT"
+               style="display:block"/>
+        <input type="hidden" name="assignmentId" id="assignment_id" value="" />
+        <input type="hidden" name="assignmentLat" id="assignment_lat" value="" />
+        <input type="hidden" name="assignmentLng" id="assignment_lng" value="" />
+        <input type="hidden" name="accepted" value="true"/>
+
+    </form>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVaXLLe74QmHG1ZvQzplX0oFm0qgu3mgE&libraries=geometry&callback=initialize"
+    async defer></script>
+  </body>
+</html>
